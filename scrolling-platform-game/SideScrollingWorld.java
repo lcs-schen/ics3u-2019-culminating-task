@@ -1,3 +1,4 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -23,11 +24,11 @@ public class SideScrollingWorld extends World
     //              Should be a resolution that's a multiple of TILE_SIZE
     private static final int VISIBLE_WIDTH = 640;
     private static final int VISIBLE_HEIGHT = 480;
-    
+
     // Additional useful constants based on world size
     public static final int HALF_VISIBLE_WIDTH = VISIBLE_WIDTH / 2;
     private static final int HALF_VISIBLE_HEIGHT = VISIBLE_HEIGHT / 2;
-    
+
     // Defining the boundaries of the scrollable world
     // TO STUDENTS: Modify SCROLLABLE_WIDTH if you wish to have a longer level
     public static final int SCROLLABLE_WIDTH = VISIBLE_WIDTH * 3;
@@ -62,11 +63,37 @@ public class SideScrollingWorld extends World
     private void setup()
     {
         // TO STUDENTS: Add, revise, or remove methods as needed to define your own game's world
-        addLeftGround();
-        addFences();
-        addMetalPlateSteps();
-        addClouds();
-        addRightGround();
+        //addLeftGround();
+        //addFences();
+        //addMetalPlateSteps();
+        //addClouds();
+        //addRightGround();
+
+        //Add some metal plate
+        for (int i = 0; i <=4; i += 1)
+        {
+            //Location
+            int x = TILE_SIZE + i * TILE_SIZE;
+            int y = 4 + TILE_SIZE + HALF_TILE_SIZE;
+
+            //CREATE AND ADD TO WORLD
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+
+        }   
+
+        //Add some ground tiles to the right
+        for (int i = 0; i <=4; i += 1)
+        {
+            //Location
+            int x = 11 * TILE_SIZE + i * TILE_SIZE;
+            int y = 4 + TILE_SIZE + HALF_TILE_SIZE;
+
+            //CREATE AND ADD TO WORLD
+            Ground someGround = new Ground(x, y);
+            addObject(someGround, x, y);
+
+        }   
         addHero();
     }
 
