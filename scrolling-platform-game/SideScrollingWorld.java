@@ -70,11 +70,11 @@ public class SideScrollingWorld extends World
         //addRightGround();
 
         //Add some metal plate
-        for (int i = 0; i <=4; i += 1)
+        for (int i = 0; i <=19; i += 1)
         {
             //Location
-            int x = TILE_SIZE + i * TILE_SIZE;
-            int y = 4 + TILE_SIZE + HALF_TILE_SIZE;
+            int x = i * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 15 * TILE_SIZE - HALF_TILE_SIZE;
 
             //CREATE AND ADD TO WORLD
             MetalPlate plate = new MetalPlate(x, y);
@@ -83,11 +83,107 @@ public class SideScrollingWorld extends World
         }   
 
         //Add some ground tiles to the right
-        for (int i = 0; i <=4; i += 1)
+        for (int i = 1; i <=18; i += 1)
         {
             //Location
-            int x = 11 * TILE_SIZE + i * TILE_SIZE;
-            int y = 4 + TILE_SIZE + HALF_TILE_SIZE;
+            int x = i * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 12 * TILE_SIZE - HALF_TILE_SIZE;
+
+            //CREATE AND ADD TO WORLD
+            Ground someGround = new Ground(x, y);
+            addObject(someGround, x, y);
+
+        }   
+        
+        for (int i = 0; i <=0; i += 1)
+        {
+            //Location
+            int x = i * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 12 * TILE_SIZE - HALF_TILE_SIZE;
+
+            //CREATE AND ADD TO WORLD
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+
+        }   
+        
+        for (int i = 19; i <=19; i += 1)
+        {
+            //Location
+            int x = i * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 12 * TILE_SIZE - HALF_TILE_SIZE;
+
+            //CREATE AND ADD TO WORLD
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+
+        } 
+        
+        for (int i = 2; i <=3; i += 1)
+        {
+            //Location
+            int x = i * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 13 * TILE_SIZE - HALF_TILE_SIZE;
+
+            //CREATE AND ADD TO WORLD
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+
+        } 
+        
+        for (int i = 1; i <=3; i += 1)
+        {
+            //Location
+            int x = i * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 9 * TILE_SIZE - HALF_TILE_SIZE;
+
+            //CREATE AND ADD TO WORLD
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+
+        }   
+        
+        for (int i = 6; i <=13; i += 1)
+        {
+            //Location
+            int x = i * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 9 * TILE_SIZE - HALF_TILE_SIZE;
+
+            //CREATE AND ADD TO WORLD
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+
+        }   
+        
+        for (int i = 16; i <=19; i += 1)
+        {
+            //Location
+            int x = i * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 9 * TILE_SIZE - HALF_TILE_SIZE;
+
+            //CREATE AND ADD TO WORLD
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+
+        }   
+        
+        for (int i = 0; i <=7; i += 1)
+        {
+            //Location
+            int x = i * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 6 * TILE_SIZE - HALF_TILE_SIZE;
+
+            //CREATE AND ADD TO WORLD
+            Ground someGround = new Ground(x, y);
+            addObject(someGround, x, y);
+
+        }   
+        
+        for (int i = 12; i <=19; i += 1)
+        {
+            //Location
+            int x = i * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 6 * TILE_SIZE - HALF_TILE_SIZE;
 
             //CREATE AND ADD TO WORLD
             Ground someGround = new Ground(x, y);
