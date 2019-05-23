@@ -69,7 +69,7 @@ public class Hero extends Actor
         horizontalDirection = FACING_RIGHT;
 
         // Set image
-        setImage("hero-jump-down-right.png");
+        setImage("DonkeyKong_21.png");
 
         // Initialize the 'walking' arrays
         walkingRightImages = new GreenfootImage[COUNT_OF_WALKING_IMAGES];
@@ -78,7 +78,7 @@ public class Hero extends Actor
         // Load walking images from disk
         for (int i = 0; i < walkingRightImages.length; i++)
         {
-            walkingRightImages[i] = new GreenfootImage("hero-walk-right-" + i + ".png");
+            walkingRightImages[i] = new GreenfootImage("DonkeyKong_21" + i + ".png");
 
             // Create left-facing images by mirroring horizontally
             walkingLeftImages[i] = new GreenfootImage(walkingRightImages[i]);
@@ -96,7 +96,7 @@ public class Hero extends Actor
     public void act() 
     {
         checkKeys();
-        checkFall();
+        
         if (!isGameOver)
         {
             checkGameOver();
@@ -386,16 +386,6 @@ public class Hero extends Actor
                 decoration.moveLeft(deltaX);
             }
 
-            // Get a list of all farAwayItems (objects that need to move
-            // to make hero look like they are moving)
-            List<FarAwayItem> farAwayItems = world.getObjects(FarAwayItem.class);
-
-            // Move all the tile objects to make it look like hero is moving
-            for (FarAwayItem farAwayItem : farAwayItems)
-            {
-                // FarAwayItems move left to make hero appear to move right
-                farAwayItem.moveLeft(deltaX / 4);
-            }
 
         }   
 
@@ -488,16 +478,6 @@ public class Hero extends Actor
             {
                 // Platforms move right to make hero appear to move left
                 decoration.moveRight(deltaX);
-            }
-
-            // Get a list of all items that are in the distance (far away items)
-            List<FarAwayItem> farAwayItems = world.getObjects(FarAwayItem.class);
-
-            // Move all the FarAwayItem objects at one quarter speed as hero to create depth illusion
-            for (FarAwayItem farAwayItem : farAwayItems)
-            {
-                // FarAwayItems move right to make hero appear to move left
-                farAwayItem.moveRight(deltaX / 4);
             }
 
         } 
