@@ -274,8 +274,8 @@ public class Hero extends Actor
         int stage = walkingFrames / WALK_ANIMATION_DELAY;
 
         // Animate
-        System.out.println("stage is " + stage);
-        System.out.println("length of array is " + walkingRightImages.length);
+        //System.out.println("stage is " + stage);
+        //System.out.println("length of array is " + walkingRightImages.length);
         if (stage < walkingRightImages.length)
         {
             System.out.println("here");

@@ -35,7 +35,12 @@ public class SideScrollingWorld extends World
 
     // Hero
     Hero theHero;
-
+    
+    //add counter and timer
+    Timer timer = new Timer();
+    Counter counter = new Counter();
+    private int time;
+    
     // Track whether game is on
     private boolean isGameOver;
 
@@ -71,6 +76,8 @@ public class SideScrollingWorld extends World
         addCarriage();
         addBase();
         addFire();
+        addObject(counter, 80, 20);
+        addObject(timer, 550, 20);
     }
 
     /**

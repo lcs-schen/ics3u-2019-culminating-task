@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Counter
+comment0.text=\n\ Help\ us\ know\ how\ many\ score\ we\ have.\n\ \n\ @author\ Sam\ Chen\n\ @version\ 1.0\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ counter\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment2.params=
+comment2.target=void\ addScore()
+comment2.text=\n\ let\ counter\ add\ score.\n
+comment3.params=
+comment3.target=void\ removeScore()
+comment3.text=\n\ let\ counter\ remove\ score.\n
+numComments=4
