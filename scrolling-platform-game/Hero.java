@@ -69,7 +69,7 @@ public class Hero extends Actor
         horizontalDirection = FACING_RIGHT;
 
         // Set image
-        setImage("DonkeyKong_21.png");
+        setImage("hero-jump-down-right.png");
 
         // Initialize the 'walking' arrays
         walkingRightImages = new GreenfootImage[COUNT_OF_WALKING_IMAGES];
@@ -78,7 +78,7 @@ public class Hero extends Actor
         // Load walking images from disk
         for (int i = 0; i < walkingRightImages.length; i++)
         {
-            walkingRightImages[i] = new GreenfootImage("DonkeyKong_21" + i + ".png");
+            walkingRightImages[i] = new GreenfootImage("hero-walk-right-" + i + ".png");
 
             // Create left-facing images by mirroring horizontally
             walkingLeftImages[i] = new GreenfootImage(walkingRightImages[i]);
@@ -96,7 +96,7 @@ public class Hero extends Actor
     public void act() 
     {
         checkKeys();
-        
+
         if (!isGameOver)
         {
             checkGameOver();
@@ -116,6 +116,10 @@ public class Hero extends Actor
         else if (Greenfoot.isKeyDown("right") && !isGameOver)
         {
             moveRight();
+        }
+        else if (Greenfoot.isKeyDown("up") && !isGameOver)
+        {
+            //moveUp();
         }
         else
         {
@@ -270,8 +274,12 @@ public class Hero extends Actor
         int stage = walkingFrames / WALK_ANIMATION_DELAY;
 
         // Animate
+        System.out.println("stage is " + stage);
+        System.out.println("length of array is " + walkingRightImages.length);
         if (stage < walkingRightImages.length)
         {
+            System.out.println("here");
+
             // Set image for this stage of the animation
             if (direction == FACING_RIGHT)
             {
@@ -300,6 +308,7 @@ public class Hero extends Actor
         // Set image 
         if (onPlatform())
         {
+            System.out.println("About to animate walk");
             animateWalk(horizontalDirection);
         }
         else
@@ -386,9 +395,7 @@ public class Hero extends Actor
                 decoration.moveLeft(deltaX);
             }
 
-
         }   
-
     }
 
     /**
