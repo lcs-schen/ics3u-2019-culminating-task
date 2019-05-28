@@ -3,7 +3,7 @@ import java.util.List;
 /**
  * A cloud that moves back and forth between two defined points.
  */
-public class Pig extends Enemies
+public class Ball extends Enemies
 {
     private int idleMove = 1;
 
@@ -13,15 +13,15 @@ public class Pig extends Enemies
      */
     public void act() 
     {
-        List pigs = getWorld().getObjects(Pig.class);
+        List balls = getWorld().getObjects(Ball.class);
 
-        if (pigs.isEmpty()) {
+        if (balls.isEmpty()) {
             idleMove();
         }
         else {
-            Pig pig = (Pig) pigs.get(0);
+            Ball ball = (Ball) balls.get(0);
 
-            if (getX() < pig.getX()) {
+            if (getX() < ball.getX()) {
                 moveRight();
             }
             else {

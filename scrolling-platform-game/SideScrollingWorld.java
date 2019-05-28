@@ -82,8 +82,8 @@ public class SideScrollingWorld extends World
         addFire();
         addObject(counter, 80, 20);
         addObject(timer, 550, 20);
-        addObject ( new Bowl(), 300, 347 );
-        addObject ( new Pig(), 300, 347 );
+        addObject ( new Ball(), 400, 350 );
+        addObject ( new Pig(), 300, 307 );
     }
 
     public void act()

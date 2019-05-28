@@ -9,11 +9,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Enemies extends Actor
 {
     /**
-     * Act - do whatever the Enemies wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Move to the left.
      */
-    public void act() 
+    protected void moveLeft()
     {
-        // Add your action code here.
+        setLocation (getX()-2, getY());
+    }    
+
+    /**
+     * Move to the right.
+     */
+    protected void moveRight()
+    {
+        setLocation (getX()+2, getY());
     }    
 }

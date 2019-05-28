@@ -105,11 +105,11 @@ public class Hero extends Actor
         World myWorld = getWorld();
         
         //Counter getCounter = getCounter();
-        if ( isTouching(Bowl.class) ) 
+        if ( isTouching(Ball.class) ) 
         {
-            removeTouching(Bowl.class);
-            SideScrollingWorld sidescrollingsorld = (SideScrollingWorld)myWorld;
-            Counter counter = SideScrollingWorld.getCounter();
+            removeTouching(Ball.class);
+            SideScrollingWorld world = (SideScrollingWorld)myWorld;
+            Counter counter = world.getCounter();
             counter.removeScore();
         }
     }
