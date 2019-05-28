@@ -59,6 +59,7 @@ public class SideScrollingWorld extends World
 
         // Set up the starting scene
         setup();
+        
 
         // Game on
         isGameOver = false;
@@ -81,6 +82,7 @@ public class SideScrollingWorld extends World
         addFire();
         addObject(counter, 80, 20);
         addObject(timer, 550, 20);
+        addObject ( new Bowl(), 300, 347 );
     }
 
     public void act()
@@ -524,6 +526,14 @@ public class SideScrollingWorld extends World
         return theHero;
     }
 
+    /**
+     * Get counter in the world.
+     */
+    public Counter getCounter()
+    {
+        return counter;
+    }
+    
     /**
      * Set game over
      */

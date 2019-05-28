@@ -101,6 +101,17 @@ public class Hero extends Actor
         {
             checkGameOver();
         }
+
+        World myWorld = getWorld();
+        
+        //Counter getCounter = getCounter();
+        if ( isTouching(Bowl.class) ) 
+        {
+            removeTouching(Bowl.class);
+            SideScrollingWorld sidescrollingsorld = (SideScrollingWorld)myWorld;
+            Counter counter = SideScrollingWorld.getCounter();
+            counter.removeScore();
+        }
     }
 
     /**
@@ -274,8 +285,6 @@ public class Hero extends Actor
         int stage = walkingFrames / WALK_ANIMATION_DELAY;
 
         // Animate
-        //System.out.println("stage is " + stage);
-        //System.out.println("length of array is " + walkingRightImages.length);
         if (stage < walkingRightImages.length)
         {
             System.out.println("here");
@@ -514,4 +523,6 @@ public class Hero extends Actor
             world.showText("GAME OVER", world.getWidth() / 2, world.getHeight() / 2);
         }
     }
-}
+
+}    
+
