@@ -1,6 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-
 /**
  * Help us know how many score we have.
  * 
@@ -18,7 +17,7 @@ public class Counter extends Actor
     {
         setImage(new GreenfootImage("Score : " + score, 24, Color.GREEN, Color.BLACK));
     }    
-    
+
     /**
      * let counter add score.
      */
@@ -26,7 +25,7 @@ public class Counter extends Actor
     {
         score++;
     }
-    
+
     /**
      * let counter remove score.
      */

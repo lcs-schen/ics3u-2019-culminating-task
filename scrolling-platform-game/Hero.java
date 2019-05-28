@@ -24,7 +24,7 @@ public class Hero extends Actor
     private int acceleration = 2;
 
     // Strength of a jump
-    private int jumpStrength = -24;
+    private int jumpStrength = -11;
 
     // Track current theoretical position in wider "scrollable" world
     private int currentScrollableWorldXPosition;
@@ -96,7 +96,7 @@ public class Hero extends Actor
     public void act() 
     {
         checkKeys();
-
+        checkFall();
         if (!isGameOver)
         {
             checkGameOver();
@@ -308,7 +308,6 @@ public class Hero extends Actor
         // Set image 
         if (onPlatform())
         {
-            System.out.println("About to animate walk");
             animateWalk(horizontalDirection);
         }
         else

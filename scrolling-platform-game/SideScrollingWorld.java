@@ -35,12 +35,15 @@ public class SideScrollingWorld extends World
 
     // Hero
     Hero theHero;
-    
+
+    //add sound
+    GreenfootSound myMusic = new GreenfootSound("Donkey Kong 64 - Angry Aztec.mp3");
+
     //add counter and timer
     Timer timer = new Timer();
     Counter counter = new Counter();
     private int time;
-    
+
     // Track whether game is on
     private boolean isGameOver;
 
@@ -78,6 +81,11 @@ public class SideScrollingWorld extends World
         addFire();
         addObject(counter, 80, 20);
         addObject(timer, 550, 20);
+    }
+
+    public void act()
+    {
+        myMusic.play();
     }
 
     /**
@@ -178,7 +186,7 @@ public class SideScrollingWorld extends World
             Fence1 fence = new Fence1(x, y);
             addObject(fence, x, y);
         }   
- 
+
     }
 
     /**
@@ -207,7 +215,7 @@ public class SideScrollingWorld extends World
             Fence2 fence = new Fence2(x, y);
             addObject(fence, x, y);
         }   
- 
+
         for (int i = 19; i <=19; i += 1)
         {
             //Location
@@ -219,7 +227,7 @@ public class SideScrollingWorld extends World
             addObject(fence, x, y);
         }   
     }
-    
+
     /**
      * Add steps made out of metal plates leading to end of world.
      */
@@ -246,7 +254,7 @@ public class SideScrollingWorld extends World
             MetalPlate plate = new MetalPlate(x, y);
             addObject(plate, x, y);
         }   
-        
+
         for (int i = 12; i <=19; i += 1)
         {
             //Location
@@ -257,7 +265,7 @@ public class SideScrollingWorld extends World
             MetalPlate plate = new MetalPlate(x, y);
             addObject(plate, x, y);
         } 
-        
+
         for (int i = 1; i <=18; i += 1)
         {
             //Location
@@ -473,7 +481,7 @@ public class SideScrollingWorld extends World
             addObject(carriage, x, y);
         }   
     }
-    
+
     /**
      * Add the hero to the world.
      */
@@ -490,7 +498,7 @@ public class SideScrollingWorld extends World
             addObject(base, x, y);
         }   
     }
-    
+
     /**
      * Add the hero to the world.
      */
@@ -507,7 +515,7 @@ public class SideScrollingWorld extends World
             addObject(fire, x, y);
         }   
     }
-    
+
     /**
      * Return an object reference to the hero.
      */
