@@ -37,7 +37,7 @@ public class Hero extends Actor
     private static final String JUMPING_UP = "up";
     private static final String JUMPING_DOWN = "down";
     private String verticalDirection;
-    
+
     // Constants to track horizontal direction
     private static final String FACING_RIGHT = "right";
     private static final String FACING_LEFT = "left";
@@ -49,7 +49,7 @@ public class Hero extends Actor
     private static final int WALK_ANIMATION_DELAY = 8;
     private static final int COUNT_OF_WALKING_IMAGES = 2;
     private int walkingFrames;
-    
+
     /**
      * Constructor
      * 
@@ -98,20 +98,12 @@ public class Hero extends Actor
     {
         checkKeys();
         checkFall();
+        encounterPig();
+        touchUfo();
+        
         if (!isGameOver)
         {
             checkGameOver();
-        }
-
-        World myWorld = getWorld();
-
-        //Counter getCounter = getCounter();
-        if ( isTouching(Ball.class) ) 
-        {
-            removeTouching(Ball.class);
-            SideScrollingWorld world = (SideScrollingWorld)myWorld;
-            Counter counter = world.getCounter();
-            counter.removeScore();
         }
     }
 
@@ -335,7 +327,7 @@ public class Hero extends Actor
             walkingFrames = 0;
         }
     }
-    
+
     /**
      * Move the hero to the right.
      */
@@ -487,7 +479,7 @@ public class Hero extends Actor
     public void moveUp()
     {
         if ( isTouching(Ladder.class) ) 
-        
+
         {
             int newVisibleWorldYPosition = getY() - deltaY;
             setLocation(getX(), newVisibleWorldYPosition);
@@ -497,11 +489,11 @@ public class Hero extends Actor
 
         }
     }
-    
+
     public void moveDown()
     {
         if ( isTouching(Ladder.class) ) 
-        
+
         {
             int newVisibleWorldYPosition = getY() + deltaY;
             setLocation(getX(), newVisibleWorldYPosition);
@@ -510,6 +502,37 @@ public class Hero extends Actor
             currentScrollableWorldYPosition = getY();
 
         }
+    }
+
+    
+    public void touchUfo()
+    {
+        if ( isTouching(Ufo.class) ) 
+        {
+            World myWorld = getWorld();
+            removeTouching(Ufo.class);
+            SideScrollingWorld world = (SideScrollingWorld)myWorld;
+            Counter counter = world.getCounter();
+            counter.removeScore();
+            //GreenfootSound removeScore = new GreenfootSound("");
+            //removeScore.play();
+        }
+    }
+
+    public void encounterPig()
+    {
+        if (isTouching(Pig.class))
+        {
+            //End the game when the hero touches the monster
+            removeTouching(Pig.class);
+            SideScrollingWorld sidescrollingworld = (SideScrollingWorld)getWorld();
+            sidescrollingworld.setGameOver();
+            isGameOver = true;
+            sidescrollingworld.removeObject(this);
+            sidescrollingworld.showText("GAME OVER", sidescrollingworld.getWidth() / 2, sidescrollingworld.getHeight() / 2);
+            //GreenfootSound Dieing = new GreenfootSound("");
+            //Dieing.play();
+        }    
     }
 }    
 

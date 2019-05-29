@@ -6,21 +6,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Enemies extends Actor
+public class Enemies extends Decoration
 {
     /**
-     * Move to the left.
+     * Constructor
+     * 
+     * Called once when object is created.
      */
-    protected void moveLeft()
+    Enemies(int scrollableWorldX, int scrollableWorldY)
     {
-        setLocation (getX()-2, getY());
-    }    
+        super(scrollableWorldX, scrollableWorldY);
+    }
 
     /**
      * Move to the right.
      */
-    protected void moveRight()
+    protected void Act()
     {
-        setLocation (getX()+2, getY());
+        
     }    
 }

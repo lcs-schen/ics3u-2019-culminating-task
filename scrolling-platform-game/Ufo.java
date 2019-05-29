@@ -7,14 +7,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 
-public class Pig extends Enemies
+public class Ufo extends Enemies
 {
     /**
      * Constructor
      * 
      * Called once when object is created.
      */
-    Pig(int scrollableWorldX, int scrollableWorldY)
+    Ufo(int scrollableWorldX, int scrollableWorldY)
     {
         super(scrollableWorldX, scrollableWorldY);
     }

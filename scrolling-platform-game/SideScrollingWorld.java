@@ -43,9 +43,13 @@ public class SideScrollingWorld extends World
     Timer timer = new Timer();
     Counter counter = new Counter();
     private int time;
+    //private String[] x = { "3", "4", "5", "5" };
+    //private  String[] y = { "2", "2", "2", "3" };
 
     // Track whether game is on
     private boolean isGameOver;
+    
+  
 
     /**
      * Constructor for objects of class SideScrollingWorld.
@@ -59,7 +63,7 @@ public class SideScrollingWorld extends World
 
         // Set up the starting scene
         setup();
-
+        
         // Game on
         isGameOver = false;
     }
@@ -81,10 +85,12 @@ public class SideScrollingWorld extends World
         addFire();
         addObject(counter, 80, 20);
         addObject(timer, 550, 20);
-        addObject ( new Ball(), 200, 350 );
-        addObject ( new Ball(), 400, 350 );
-        addObject ( new Ball(), 600, 350 );
-        addObject ( new Pig(), 300, 307 );
+        //addObject ( new Ball(), 200, 350 );
+        //addObject ( new Ball(), 400, 350 );
+        //addObject ( new Ball(), 600, 350 );
+        addPig();
+        addUfo();
+        //addGrounds();
     }
 
     public void act()
@@ -92,6 +98,28 @@ public class SideScrollingWorld extends World
         myMusic.play();
     }
 
+    /**
+     * Create the piano keys (white and black) and place them in the world.
+     */
+    private void makeGrounds() 
+    {
+        // make the white keys
+        //for(int i = 0; i < x.length; i++) {
+            //addObject(new Grounds(), x[i], y[i]);
+        //}
+
+    }
+    
+    
+    private void addPig()
+    {
+        //Add pig to the world
+        
+        Pig pig = new Pig(304, 400);
+        addObject(pig, 304, 400);
+
+    }
+    
     /**
      * Add blocks to create the ground to walk on at bottom-left of scrollable world.
      */
@@ -520,6 +548,15 @@ public class SideScrollingWorld extends World
         }   
     }
 
+    private void addUfo()
+    {
+        //Add monsters to the world
+        
+        Ufo ufo1 = new Ufo(204, 400);
+        addObject(ufo1, 204, 400);
+
+    }
+    
     /**
      * Return an object reference to the hero.
      */

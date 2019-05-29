@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=Enemies
 comment0.text=\n\ Write\ a\ description\ of\ class\ Enemies\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=
-comment1.target=void\ moveLeft()
-comment1.text=\n\ Move\ to\ the\ left.\n
+comment1.params=scrollableWorldX\ scrollableWorldY
+comment1.target=Enemies(int,\ int)
+comment1.text=\n\ Constructor\n\ \n\ Called\ once\ when\ object\ is\ created.\n
 comment2.params=
-comment2.target=void\ moveRight()
+comment2.target=void\ Act()
 comment2.text=\n\ Move\ to\ the\ right.\n
 numComments=3
