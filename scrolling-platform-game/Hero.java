@@ -24,7 +24,7 @@ public class Hero extends Actor
     private int acceleration = 2;
 
     // Strength of a jump
-    private int jumpStrength = -14;
+    private int jumpStrength = -15;
 
     // Track current theoretical position in wider "scrollable" world
     private int currentScrollableWorldXPosition;
@@ -98,9 +98,12 @@ public class Hero extends Actor
     {
         checkKeys();
         checkFall();
-        encounterPig();
-        touchUfo();
-        
+        encounterMonster();
+        if (!isGameOver)
+        {
+            touchUfo();
+        }
+
         if (!isGameOver)
         {
             checkGameOver();
@@ -514,12 +517,12 @@ public class Hero extends Actor
             SideScrollingWorld world = (SideScrollingWorld)myWorld;
             Counter counter = world.getCounter();
             counter.removeScore();
-            //GreenfootSound removeScore = new GreenfootSound("");
-            //removeScore.play();
+            GreenfootSound removeScore = new GreenfootSound("Donkey Kong eat ufo sound effect.wav");
+            removeScore.play();
         }
     }
 
-    public void encounterPig()
+    public void encounterMonster()
     {
         if (isTouching(Monster.class))
         {
@@ -530,8 +533,24 @@ public class Hero extends Actor
             isGameOver = true;
             sidescrollingworld.removeObject(this);
             sidescrollingworld.showText("GAME OVER", sidescrollingworld.getWidth() / 2, sidescrollingworld.getHeight() / 2);
-            //GreenfootSound Dieing = new GreenfootSound("");
-            //Dieing.play();
+            GreenfootSound Dieing = new GreenfootSound("die music.wav");
+            Dieing.play();
+        }    
+    }
+
+    public void encounterPrinces()
+    {
+        if (isTouching(Princes.class))
+        {
+            //End the game when the hero touches the monster
+            removeTouching(Princes.class);
+            SideScrollingWorld sidescrollingworld = (SideScrollingWorld)getWorld();
+            sidescrollingworld.setGameOver();
+            isGameOver = true;
+            sidescrollingworld.removeObject(this);
+            sidescrollingworld.showText("GAME OVER", sidescrollingworld.getWidth() / 2, sidescrollingworld.getHeight() / 2);
+            GreenfootSound Dieing = new GreenfootSound("die music.wav");
+            Dieing.play();
         }    
     }
 }    

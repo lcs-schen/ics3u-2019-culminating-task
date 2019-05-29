@@ -37,18 +37,15 @@ public class SideScrollingWorld extends World
     Hero theHero;
 
     //add sound
-    GreenfootSound myMusic = new GreenfootSound("Donkey Kong 64 - Angry Aztec.mp3");
+    GreenfootSound myMusic = new GreenfootSound("Donkey Kong background music - Angry Aztec.mp3");
 
     //add counter and timer
     Timer timer = new Timer();
     Counter counter = new Counter();
     private int time;
-    
-    private int [] x = { "3", "4", "5", "5" };
-    private int [] y = { "2", "2", "2", "3" };
+
     // Track whether game is on
     private boolean isGameOver;
-
 
     /**
      * Constructor for objects of class SideScrollingWorld.
@@ -62,7 +59,6 @@ public class SideScrollingWorld extends World
 
         // Set up the starting scene
         setup();
-        
 
         // Game on
         isGameOver = false;
@@ -88,25 +84,12 @@ public class SideScrollingWorld extends World
         addMonster();
         addUfo();
         addDonkeykong();
-        
+        addPrinces();
     }
 
     public void act()
     {
         myMusic.play();
-    }
-
-    /**
-     * Create the piano keys (white and black) and place them in the world.
-     */
-    public void makeHearts() 
-    {
-        // make the white keys
-        for(int i = 0; i < x.length; i++) 
-        {
-        addObject(new Heart(), x[i], y[i]);
-        }
-
     }
 
     /**
@@ -550,30 +533,39 @@ public class SideScrollingWorld extends World
         Ufo ufo3 = new Ufo(450, 350);
         addObject(ufo3, 450, 350);
     }
-    
+
     private void addMonster()
     {
         //Add ufos to the world
 
         Monster monster1 = new Monster(240, 250);
         addObject(monster1, 240, 250);
-        
+
         Monster monster2 = new Monster(60, 155);
         addObject(monster2, 60, 155);
-        
+
         Monster monster3 = new Monster(420, 155);
         addObject(monster3, 420, 155);
     }
-    
+
     private void addDonkeykong()
     {
         //Add ufos to the world
 
         Donkeykong donkeykong1 = new Donkeykong(80, 30);
         addObject(donkeykong1, 80, 30);
-        
+
     }
 
+    private void addPrinces()
+    {
+        //Add ufos to the world
+
+        Princes Princes1 = new Princes(300, 50);
+        addObject(Princes1, 300, 50);
+
+    }
+    
     /**
      * Return an object reference to the hero.
      */
