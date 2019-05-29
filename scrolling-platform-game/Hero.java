@@ -103,7 +103,7 @@ public class Hero extends Actor
         }
 
         World myWorld = getWorld();
-        
+
         //Counter getCounter = getCounter();
         if ( isTouching(Ball.class) ) 
         {
@@ -524,5 +524,20 @@ public class Hero extends Actor
         }
     }
 
+    public void climbing()
+    {
+        if ( isTouching(Ladder.class) ) 
+        {
+            jumpStrength = -20;
+        }
+    }
+
+    public void moveUp()
+    {
+        if (Greenfoot.isKeyDown("space") && !isGameOver)
+        {
+           jump();
+        }
+    }
 }    
 
