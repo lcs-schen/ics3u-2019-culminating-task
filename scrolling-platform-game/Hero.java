@@ -24,10 +24,11 @@ public class Hero extends Actor
     private int acceleration = 2;
 
     // Strength of a jump
-    private int jumpStrength = -11;
+    private int jumpStrength = -15;
 
     // Track current theoretical position in wider "scrollable" world
     private int currentScrollableWorldXPosition;
+    private int currentScrollableWorldYPosition;
 
     // Track whether game is over or not
     private boolean isGameOver;
@@ -130,6 +131,10 @@ public class Hero extends Actor
         }
         else if (Greenfoot.isKeyDown("up") && !isGameOver)
         {
+            if (onLadder())
+            {
+                moveUp();
+            }
             //moveUp();
         }
         else
@@ -220,6 +225,27 @@ public class Hero extends Actor
     }
 
     /**
+     * Is the hero currently touching a solid object? (any subclass of Platform)
+     */
+    public boolean onLadder()
+    {
+        // Get an reference to a solid object (subclass of Platform) below the hero, if one exists
+        Actor directlyUnder = getOneObjectAtOffset(0, getImage().getHeight() / 2, Ladder.class);
+        Actor frontUnder = getOneObjectAtOffset(getImage().getWidth() / 3, getImage().getHeight() / 2, Ladder.class);
+        Actor rearUnder = getOneObjectAtOffset(0 - getImage().getWidth() / 3, getImage().getHeight() / 2, Ladder.class);
+
+        // If there is no solid object below (or slightly in front of or behind) the hero...
+        if (directlyUnder == null && frontUnder == null && rearUnder == null)
+        {
+            return false;   // Not on a solid object
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    /**
      * Make the hero jump.
      */
     public void jump()
@@ -239,7 +265,7 @@ public class Hero extends Actor
 
         // Change the vertical speed to the power of the jump
         deltaY = jumpStrength;
-
+        jumpStrength = -15;
         // Make the character move vertically 
         fall();
     }
@@ -287,8 +313,6 @@ public class Hero extends Actor
         // Animate
         if (stage < walkingRightImages.length)
         {
-            System.out.println("here");
-
             // Set image for this stage of the animation
             if (direction == FACING_RIGHT)
             {
@@ -363,14 +387,6 @@ public class Hero extends Actor
                 // Track position in wider scrolling world
                 currentScrollableWorldXPosition += deltaX;
             }
-            else
-            {
-                isGameOver = true;
-                world.setGameOver();
-
-                // Tell the user game is over
-                world.showText("LEVEL COMPLETE", world.getWidth() / 2, world.getHeight() / 2);
-            }
 
         }
         else
@@ -384,24 +400,6 @@ public class Hero extends Actor
             // Get a list of all platforms (objects that need to move
             // to make hero look like they are moving)
             List<Platform> platforms = world.getObjects(Platform.class);
-
-            // Move all the platform objects to make it look like hero is moving
-            for (Platform platform : platforms)
-            {
-                // Platforms move left to make hero appear to move right
-                platform.moveLeft(deltaX);
-            }
-
-            // Get a list of all decorations (objects that need to move
-            // to make hero look like they are moving)
-            List<Decoration> decorations = world.getObjects(Decoration.class);
-
-            // Move all the decoration objects to make it look like hero is moving
-            for (Decoration decoration: decorations)
-            {
-                // Platforms move left to make hero appear to move right
-                decoration.moveLeft(deltaX);
-            }
 
         }   
     }
@@ -524,19 +522,22 @@ public class Hero extends Actor
         }
     }
 
-    public void climbing()
+    public void moveUp()
     {
         if ( isTouching(Ladder.class) ) 
         {
-            jumpStrength = -20;
-        }
-    }
+            if (onLadder())
+            {
+                animateWalk(verticalDirection);
+            }
+            int newVisibleWorldYPosition = getY() - deltaY;
+            setLocation(getX(), newVisibleWorldYPosition);
 
-    public void moveUp()
-    {
-        if (Greenfoot.isKeyDown("space") && !isGameOver)
-        {
-           jump();
+            // Track position in wider scrolling world
+            currentScrollableWorldYPosition = getY();
+
+            //jumpStrength = -17;
+            //jump();
         }
     }
 }    
