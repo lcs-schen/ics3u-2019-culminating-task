@@ -126,10 +126,11 @@ public class Hero extends Actor
         }
         else if (Greenfoot.isKeyDown("up") && !isGameOver)
         {
-            if (onLadder())
-            {
+            System.out.println("About to move up");
+//            if (onLadder())
+//            {
                 moveUp();
-            }
+//            }
         }
         else if (Greenfoot.isKeyDown("down") && !isGameOver)
         {
@@ -481,10 +482,13 @@ public class Hero extends Actor
 
     public void moveUp()
     {
+        
+        // set vertical move speed
+        deltaY = -4;
         if ( isTouching(Ladder.class) ) 
-
         {
-            int newVisibleWorldYPosition = getY() - deltaY;
+            System.out.println("touching ladder");
+            int newVisibleWorldYPosition = getY() + deltaY;
             setLocation(getX(), newVisibleWorldYPosition);
 
             // Track position in wider scrolling world
