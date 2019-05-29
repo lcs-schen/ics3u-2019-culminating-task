@@ -37,7 +37,7 @@ public class Hero extends Actor
     private static final String JUMPING_UP = "up";
     private static final String JUMPING_DOWN = "down";
     private String verticalDirection;
-
+    
     // Constants to track horizontal direction
     private static final String FACING_RIGHT = "right";
     private static final String FACING_LEFT = "left";
@@ -49,7 +49,7 @@ public class Hero extends Actor
     private static final int WALK_ANIMATION_DELAY = 8;
     private static final int COUNT_OF_WALKING_IMAGES = 2;
     private int walkingFrames;
-
+    
     /**
      * Constructor
      * 
@@ -135,7 +135,13 @@ public class Hero extends Actor
             {
                 moveUp();
             }
-            //moveUp();
+        }
+        else if (Greenfoot.isKeyDown("down") && !isGameOver)
+        {
+            if (onLadder())
+            {
+                moveDown();
+            }
         }
         else
         {
@@ -329,7 +335,7 @@ public class Hero extends Actor
             walkingFrames = 0;
         }
     }
-
+    
     /**
      * Move the hero to the right.
      */
@@ -389,19 +395,7 @@ public class Hero extends Actor
             }
 
         }
-        else
-        {
-            // HERO IS BETWEEN LEFT AND RIGHT PORTIONS OF SCROLLABLE WORLD
-            // So... we move the other objects to create illusion of hero moving
 
-            // Track position in wider scrolling world
-            currentScrollableWorldXPosition += deltaX;
-
-            // Get a list of all platforms (objects that need to move
-            // to make hero look like they are moving)
-            List<Platform> platforms = world.getObjects(Platform.class);
-
-        }   
     }
 
     /**
@@ -462,39 +456,7 @@ public class Hero extends Actor
 
             // Track position in wider scrolling world
             currentScrollableWorldXPosition -= deltaX;
-        }        
-        else
-        {
-            // HERO IS BETWEEN LEFT AND RIGHT PORTIONS OF SCROLLABLE WORLD
-            // So... we move the other objects to create illusion of hero moving
-
-            // Track position in wider scrolling world
-            currentScrollableWorldXPosition -= deltaX;
-
-            // Get a list of all platforms (objects that need to move
-            // to make hero look like they are moving)
-            List<Platform> platforms = world.getObjects(Platform.class);
-
-            // Move all the platform objects at same speed as hero
-            for (Platform platform : platforms)
-            {
-                // Platforms move right to make hero appear to move left
-                platform.moveRight(deltaX);
-            }
-
-            // Get a list of all decorations (objects that need to move
-            // to make hero look like they are moving)
-            List<Decoration> decorations = world.getObjects(Decoration.class);
-
-            // Move all the decoration objects to make it look like hero is moving
-            for (Decoration decoration: decorations)
-            {
-                // Platforms move right to make hero appear to move left
-                decoration.moveRight(deltaX);
-            }
-
-        } 
-
+        }   
     }
 
     /**
@@ -525,19 +487,28 @@ public class Hero extends Actor
     public void moveUp()
     {
         if ( isTouching(Ladder.class) ) 
+        
         {
-            if (onLadder())
-            {
-                animateWalk(verticalDirection);
-            }
             int newVisibleWorldYPosition = getY() - deltaY;
             setLocation(getX(), newVisibleWorldYPosition);
 
             // Track position in wider scrolling world
             currentScrollableWorldYPosition = getY();
 
-            //jumpStrength = -17;
-            //jump();
+        }
+    }
+    
+    public void moveDown()
+    {
+        if ( isTouching(Ladder.class) ) 
+        
+        {
+            int newVisibleWorldYPosition = getY() + deltaY;
+            setLocation(getX(), newVisibleWorldYPosition);
+
+            // Track position in wider scrolling world
+            currentScrollableWorldYPosition = getY();
+
         }
     }
 }    

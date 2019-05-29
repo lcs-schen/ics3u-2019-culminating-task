@@ -302,121 +302,121 @@ public class SideScrollingWorld extends World
      */
     private void addLadder()
     {
-        for (int i = 0; i <=1 ; i ++)
+        for (int i = 0; i <=2 ; i ++)
         {
             //Location
             int x = 2 * TILE_SIZE + HALF_TILE_SIZE;
-            int y = 13 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 12 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
 
             //CREATE AND ADD TO WORLD
             Ladder ladder = new Ladder(x, y);
             addObject(ladder, x, y);
         } 
 
-        for (int i = 0; i <=1 ; i ++)
+        for (int i = 0; i <=2 ; i ++)
         {
             //Location
             int x = 7 * TILE_SIZE + HALF_TILE_SIZE;
-            int y = 13 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 12 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
 
             //CREATE AND ADD TO WORLD
             Ladder ladder = new Ladder(x, y);
             addObject(ladder, x, y);
         } 
 
-        for (int i = 0; i <=1 ; i ++)
+        for (int i = 0; i <=2 ; i ++)
         {
             //Location
             int x = 12 * TILE_SIZE + HALF_TILE_SIZE;
-            int y = 13 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 12 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
 
             //CREATE AND ADD TO WORLD
             Ladder ladder = new Ladder(x, y);
             addObject(ladder, x, y);
         } 
 
-        for (int i = 0; i <=1 ; i ++)
+        for (int i = 0; i <=2 ; i ++)
         {
             //Location
             int x = 17 * TILE_SIZE + HALF_TILE_SIZE;
-            int y = 13 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 12 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
 
             //CREATE AND ADD TO WORLD
             Ladder ladder = new Ladder(x, y);
             addObject(ladder, x, y);
         } 
 
-        for (int i = 0; i <=1 ; i ++)
+        for (int i = 0; i <=2 ; i ++)
         {
             //Location
             int x = 6 * TILE_SIZE + HALF_TILE_SIZE;
-            int y = 10 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 9 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
 
             //CREATE AND ADD TO WORLD
             Ladder ladder = new Ladder(x, y);
             addObject(ladder, x, y);
         } 
 
-        for (int i = 0; i <=1 ; i ++)
+        for (int i = 0; i <=2 ; i ++)
         {
             //Location
             int x = 13 * TILE_SIZE + HALF_TILE_SIZE;
-            int y = 10 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 9 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
 
             //CREATE AND ADD TO WORLD
             Ladder ladder = new Ladder(x, y);
             addObject(ladder, x, y);
         } 
 
-        for (int i = 0; i <=1 ; i ++)
+        for (int i = 0; i <=2 ; i ++)
         {
             //Location
             int x = 2 * TILE_SIZE + HALF_TILE_SIZE;
-            int y = 7 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 6 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
 
             //CREATE AND ADD TO WORLD
             Ladder ladder = new Ladder(x, y);
             addObject(ladder, x, y);
         } 
 
-        for (int i = 0; i <=1 ; i ++)
+        for (int i = 0; i <=2 ; i ++)
         {
             //Location
             int x = 7 * TILE_SIZE + HALF_TILE_SIZE;
-            int y = 7 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 6 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
 
             //CREATE AND ADD TO WORLD
             Ladder ladder = new Ladder(x, y);
             addObject(ladder, x, y);
         } 
 
-        for (int i = 0; i <=1 ; i ++)
+        for (int i = 0; i <=2 ; i ++)
         {
             //Location
             int x = 12 * TILE_SIZE + HALF_TILE_SIZE;
-            int y = 7 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 6 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
 
             //CREATE AND ADD TO WORLD
             Ladder ladder = new Ladder(x, y);
             addObject(ladder, x, y);
         } 
 
-        for (int i = 0; i <=1 ; i ++)
+        for (int i = 0; i <=2 ; i ++)
         {
             //Location
             int x = 17 * TILE_SIZE + HALF_TILE_SIZE;
-            int y = 7 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 6 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
 
             //CREATE AND ADD TO WORLD
             Ladder ladder = new Ladder(x, y);
             addObject(ladder, x, y);
         } 
 
-        for (int i = 0; i <=1 ; i ++)
+        for (int i = 0; i <=2 ; i ++)
         {
             //Location
             int x = 1 * TILE_SIZE + HALF_TILE_SIZE;
-            int y = 4 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 3 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
 
             //CREATE AND ADD TO WORLD
             Ladder ladder = new Ladder(x, y);
@@ -424,22 +424,22 @@ public class SideScrollingWorld extends World
 
         } 
 
-        for (int i = 0; i <=1 ; i ++)
+        for (int i = 0; i <=2 ; i ++)
         {
             //Location
             int x = 18 * TILE_SIZE + HALF_TILE_SIZE;
-            int y = 4 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 3 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
 
             //CREATE AND ADD TO WORLD
             Ladder ladder = new Ladder(x, y);
             addObject(ladder, x, y);
         } 
 
-        for (int i = 0; i <=1 ; i ++)
+        for (int i = 0; i <=2 ; i ++)
         {
             //Location
             int x = 5 * TILE_SIZE + HALF_TILE_SIZE;
-            int y = 1 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 0 * TILE_SIZE - HALF_TILE_SIZE + i * TILE_SIZE;
 
             //CREATE AND ADD TO WORLD
             Ladder ladder = new Ladder(x, y);
