@@ -7,14 +7,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 
-public class Ufo extends Enemies
+public class Monster extends Enemies
 {
     /**
      * Constructor
      * 
      * Called once when object is created.
      */
-    Ufo(int scrollableWorldX, int scrollableWorldY)
+    Monster(int scrollableWorldX, int scrollableWorldY)
     {
         super(scrollableWorldX, scrollableWorldY);
     }
@@ -31,7 +31,7 @@ public class Ufo extends Enemies
     {
         setLocation ( getX() + speed, getY() );
         frames += 1;
-        if(frames == 75)
+        if(frames == 160)
         {
             //Turn around and go back
             speed = -speed;

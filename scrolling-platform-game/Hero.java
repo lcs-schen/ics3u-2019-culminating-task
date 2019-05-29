@@ -24,7 +24,7 @@ public class Hero extends Actor
     private int acceleration = 2;
 
     // Strength of a jump
-    private int jumpStrength = -15;
+    private int jumpStrength = -14;
 
     // Track current theoretical position in wider "scrollable" world
     private int currentScrollableWorldXPosition;
@@ -521,10 +521,10 @@ public class Hero extends Actor
 
     public void encounterPig()
     {
-        if (isTouching(Pig.class))
+        if (isTouching(Monster.class))
         {
             //End the game when the hero touches the monster
-            removeTouching(Pig.class);
+            removeTouching(Monster.class);
             SideScrollingWorld sidescrollingworld = (SideScrollingWorld)getWorld();
             sidescrollingworld.setGameOver();
             isGameOver = true;

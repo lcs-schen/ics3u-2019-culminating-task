@@ -7,14 +7,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 
-public class Pig extends Enemies
+public class Donkeykong extends Enemies
 {
     /**
      * Constructor
      * 
      * Called once when object is created.
      */
-    Pig(int scrollableWorldX, int scrollableWorldY)
+    Donkeykong(int scrollableWorldX, int scrollableWorldY)
     {
         super(scrollableWorldX, scrollableWorldY);
     }
@@ -24,14 +24,14 @@ public class Pig extends Enemies
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
 
-    private int speed = 2;
+    private int speed = 1;
     private int frames = 0;
 
     public void act() 
     {
         setLocation ( getX() + speed, getY() );
         frames += 1;
-        if(frames == 50)
+        if(frames == 460)
         {
             //Turn around and go back
             speed = -speed;

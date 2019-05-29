@@ -43,13 +43,12 @@ public class SideScrollingWorld extends World
     Timer timer = new Timer();
     Counter counter = new Counter();
     private int time;
-    //private String[] x = { "3", "4", "5", "5" };
-    //private  String[] y = { "2", "2", "2", "3" };
-
+    
+    private int [] x = { "3", "4", "5", "5" };
+    private int [] y = { "2", "2", "2", "3" };
     // Track whether game is on
     private boolean isGameOver;
-    
-  
+
 
     /**
      * Constructor for objects of class SideScrollingWorld.
@@ -64,6 +63,7 @@ public class SideScrollingWorld extends World
         // Set up the starting scene
         setup();
         
+
         // Game on
         isGameOver = false;
     }
@@ -85,12 +85,10 @@ public class SideScrollingWorld extends World
         addFire();
         addObject(counter, 80, 20);
         addObject(timer, 550, 20);
-        //addObject ( new Ball(), 200, 350 );
-        //addObject ( new Ball(), 400, 350 );
-        //addObject ( new Ball(), 600, 350 );
-        addPig();
+        addMonster();
         addUfo();
-        //addGrounds();
+        addDonkeykong();
+        
     }
 
     public void act()
@@ -101,25 +99,16 @@ public class SideScrollingWorld extends World
     /**
      * Create the piano keys (white and black) and place them in the world.
      */
-    private void makeGrounds() 
+    public void makeHearts() 
     {
         // make the white keys
-        //for(int i = 0; i < x.length; i++) {
-            //addObject(new Grounds(), x[i], y[i]);
-        //}
+        for(int i = 0; i < x.length; i++) 
+        {
+        addObject(new Heart(), x[i], y[i]);
+        }
 
     }
-    
-    
-    private void addPig()
-    {
-        //Add pig to the world
-        
-        Pig pig = new Pig(304, 400);
-        addObject(pig, 304, 400);
 
-    }
-    
     /**
      * Add blocks to create the ground to walk on at bottom-left of scrollable world.
      */
@@ -550,13 +539,41 @@ public class SideScrollingWorld extends World
 
     private void addUfo()
     {
-        //Add monsters to the world
-        
-        Ufo ufo1 = new Ufo(204, 400);
-        addObject(ufo1, 204, 400);
+        //Add ufos to the world
 
+        Ufo ufo1 = new Ufo(130, 350);
+        addObject(ufo1, 130, 350);
+
+        Ufo ufo2 = new Ufo(290, 350);
+        addObject(ufo2, 290, 350);
+
+        Ufo ufo3 = new Ufo(450, 350);
+        addObject(ufo3, 450, 350);
     }
     
+    private void addMonster()
+    {
+        //Add ufos to the world
+
+        Monster monster1 = new Monster(240, 250);
+        addObject(monster1, 240, 250);
+        
+        Monster monster2 = new Monster(60, 155);
+        addObject(monster2, 60, 155);
+        
+        Monster monster3 = new Monster(420, 155);
+        addObject(monster3, 420, 155);
+    }
+    
+    private void addDonkeykong()
+    {
+        //Add ufos to the world
+
+        Donkeykong donkeykong1 = new Donkeykong(80, 30);
+        addObject(donkeykong1, 80, 30);
+        
+    }
+
     /**
      * Return an object reference to the hero.
      */
@@ -580,6 +597,6 @@ public class SideScrollingWorld extends World
     {
         isGameOver = true;
     }
-   
+
 }
 

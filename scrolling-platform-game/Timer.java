@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Timer extends Actor
 {
-    int time = 1000;
+    int time = 2000;
 
     /**
      * Act - do whatever the Timer wants to do. This method is called whenever
