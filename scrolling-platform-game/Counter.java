@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Help us know how many score we have.
  * 
- * @author Sam Chen
- * @version 1.0
+ * @author S. Chen
+ * @version May 29, 2019
  */
 public class Counter extends Actor
 {

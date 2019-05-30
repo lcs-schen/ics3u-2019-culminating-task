@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Basic ground object.
  * 
- * @author R. Gordon
- * @version May 8, 2019
+ * @author S. Chen
+ * @version May 29, 2019
  */
 public class Ground extends Platform
 {

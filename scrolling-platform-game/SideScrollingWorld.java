@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Template for a side-scrolling platform game.
  * 
- * @author R. Gordon
- * @version May 8, 2019
+ * @author S. Chen
+ * @version May 29, 2019
  */
 public class SideScrollingWorld extends World
 {
@@ -20,7 +20,7 @@ public class SideScrollingWorld extends World
 
     // World size constants
     // TO STUDENTS: Modify only if you're sure
-    //              Should be a resolution that's a multiple of TILE_SIZE
+    // Should be a resolution that's a multiple of TILE_SIZE
     private static final int VISIBLE_WIDTH = 640;
     private static final int VISIBLE_HEIGHT = 480;
 
@@ -44,7 +44,6 @@ public class SideScrollingWorld extends World
     Counter counter = new Counter();
     private int time;
 
-
     // Track whether game is on
     private boolean isGameOver;
 
@@ -65,15 +64,20 @@ public class SideScrollingWorld extends World
         isGameOver = false;
     }
 
+    public void act()
+    {
+        //play the background music
+        myMusic.play();
+    }
+
     /**
      * Set up the entire world.
      */
     private void setup()
     {
-        // TO STUDENTS: Add, revise, or remove methods as needed to define your own game's world
-        addGround();
         addFence1();
         addFence2();
+        addGround();
         addMetalPlateSteps();
         addLadder();
         addHero();
@@ -86,7 +90,6 @@ public class SideScrollingWorld extends World
         addUfo();
         addDonkeykong();
         addPrinces();
-
     }
 
     /**
@@ -295,7 +298,7 @@ public class SideScrollingWorld extends World
     }
 
     /**
-     * Add blocks to create the ground to walk on at top-right of scrollable world.
+     * Add ladders to create the ground to walk on at top-right of scrollable world.
      */
     private void addLadder()
     {
@@ -467,7 +470,7 @@ public class SideScrollingWorld extends World
     }
 
     /**
-     * Add the hero to the world.
+     * Add the carriage to the world.
      */
     private void addCarriage()
     {
@@ -484,7 +487,7 @@ public class SideScrollingWorld extends World
     }
 
     /**
-     * Add the hero to the world.
+     * Add the base to the world.
      */
     private void addBase()
     {
@@ -501,7 +504,7 @@ public class SideScrollingWorld extends World
     }
 
     /**
-     * Add the hero to the world.
+     * Add the fire to the world.
      */
     private void addFire()
     {

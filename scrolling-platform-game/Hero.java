@@ -4,8 +4,8 @@ import java.util.List;
 /**
  * This is the class for the "main character" in the action.
  * 
- * @author R. Gordon
- * @version May 8, 2019
+ * @author S. Chen
+ * @version May 29, 2019
  */
 public class Hero extends Actor
 {
@@ -14,6 +14,8 @@ public class Hero extends Actor
      * 
      * These are available for use in any method below.
      */    
+
+    
     // Horizontal speed (change in horizontal position, or delta X)
     private int deltaX = 4;
 
@@ -42,7 +44,7 @@ public class Hero extends Actor
     private static final String FACING_RIGHT = "right";
     private static final String FACING_LEFT = "left";
     private String horizontalDirection;
-    
+
     // Constants to track vertical direction
     private static final String CLIMBING_UP = "up1";
     private static final String CLIMBING_DOWN = "down1";
@@ -104,6 +106,8 @@ public class Hero extends Actor
         checkKeys();
         checkFall();
         encounterMonster();
+        encounterDonkeykong();
+        encounterPrinces();
         if (!isGameOver)
         {
             touchUfo();
@@ -131,18 +135,7 @@ public class Hero extends Actor
         }
         else if (Greenfoot.isKeyDown("up") && !isGameOver)
         {
-            
-            //            if (onLadder())
-            //            {
             moveUp();
-            //            }
-        }
-        else if (Greenfoot.isKeyDown("down") && !isGameOver)
-        {
-            //if (onLadder())
-            //{
-                moveDown();
-            //}
         }
         else
         {
@@ -500,46 +493,21 @@ public class Hero extends Actor
             {
                 setImage("hero-climb-up.png");
             }
-            
+
             int newVisibleWorldYPosition = getY() + deltaY;
             setLocation(getX(), newVisibleWorldYPosition);
 
             // Track position in wider scrolling world
             currentScrollableWorldYPosition = getY();
         }
-        
-    }
 
-    public void moveDown()
-    {
-        if ( isTouching(Ladder.class) ) 
-
-        {
-            // set vertical move speed
-            deltaY = 0;
-            //set image
-            if (verticalDirection == CLIMBING_DOWN)
-            {
-                setImage("hero-climb down.png");
-            }
-            else
-            {
-                setImage("hero-climb down.png");
-            }
-            
-            int newVisibleWorldYPosition = deltaY - getY();
-            setLocation(getX(), newVisibleWorldYPosition);
-
-            // Track position in wider scrolling world
-            currentScrollableWorldYPosition = getY();
-
-        }
     }
 
     public void touchUfo()
     {
         if ( isTouching(Ufo.class) ) 
         {
+            //things do after touch ufo
             World myWorld = getWorld();
             removeTouching(Ufo.class);
             SideScrollingWorld world = (SideScrollingWorld)myWorld;
@@ -559,26 +527,25 @@ public class Hero extends Actor
             SideScrollingWorld sidescrollingworld = (SideScrollingWorld)getWorld();
             sidescrollingworld.setGameOver();
             isGameOver = true;
-            sidescrollingworld.removeObject(this);
             sidescrollingworld.showText("GAME OVER", sidescrollingworld.getWidth() / 2, sidescrollingworld.getHeight() / 2);
             GreenfootSound Dieing = new GreenfootSound("die music.wav");
             Dieing.play();
         }    
     }
-    
+
     public void encounterDonkeykong()
     {
         if (isTouching(Donkeykong.class))
         {
-            //End the game when the hero touches the monster
+            //End the game when the hero touches the donkeykong
             removeTouching(Donkeykong.class);
             SideScrollingWorld sidescrollingworld = (SideScrollingWorld)getWorld();
             sidescrollingworld.setGameOver();
             isGameOver = true;
-            sidescrollingworld.removeObject(this);
             sidescrollingworld.showText("GAME OVER", sidescrollingworld.getWidth() / 2, sidescrollingworld.getHeight() / 2);
             GreenfootSound Dieing = new GreenfootSound("die music.wav");
             Dieing.play();
+            Greenfoot.stop();
         }    
     }
 
@@ -586,13 +553,12 @@ public class Hero extends Actor
     {
         if (isTouching(Princes.class))
         {
-            //End the game when the hero touches the monster
+            //things do after touch princes, success
             removeTouching(Princes.class);
             SideScrollingWorld sidescrollingworld = (SideScrollingWorld)getWorld();
             sidescrollingworld.setGameOver();
             isGameOver = true;
-            sidescrollingworld.removeObject(this);
-            sidescrollingworld.showText("GAME OVER", sidescrollingworld.getWidth() / 2, sidescrollingworld.getHeight() / 2);
+            sidescrollingworld.showText("NEXT LEVEL", sidescrollingworld.getWidth() / 2, sidescrollingworld.getHeight() / 2);
             GreenfootSound Dieing = new GreenfootSound("die music.wav");
             Dieing.play();
         }    

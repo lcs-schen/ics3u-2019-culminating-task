@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class BlueMonster here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @@author S. Chen
+ * @version May 29, 2019
  */
 
 public class Monster extends Enemies
@@ -24,6 +24,7 @@ public class Monster extends Enemies
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
 
+    //set up speed and frame
     private int speed = 1;
     private int frames = 0;
 

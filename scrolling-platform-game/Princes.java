@@ -3,8 +3,8 @@ import java.util.List;
 /**
  * Write a description of class Base here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author S. Chen
+ * @version May 29, 2019
  */
 public class Princes extends Decoration
 {
