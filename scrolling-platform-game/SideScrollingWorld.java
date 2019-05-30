@@ -44,6 +44,7 @@ public class SideScrollingWorld extends World
     Counter counter = new Counter();
     private int time;
 
+
     // Track whether game is on
     private boolean isGameOver;
 
@@ -85,11 +86,7 @@ public class SideScrollingWorld extends World
         addUfo();
         addDonkeykong();
         addPrinces();
-    }
 
-    public void act()
-    {
-        myMusic.play();
     }
 
     /**
@@ -559,13 +556,12 @@ public class SideScrollingWorld extends World
 
     private void addPrinces()
     {
-        //Add ufos to the world
 
         Princes Princes1 = new Princes(300, 50);
         addObject(Princes1, 300, 50);
 
     }
-    
+
     /**
      * Return an object reference to the hero.
      */
@@ -591,4 +587,3 @@ public class SideScrollingWorld extends World
     }
 
 }
-

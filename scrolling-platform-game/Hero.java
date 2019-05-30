@@ -42,6 +42,11 @@ public class Hero extends Actor
     private static final String FACING_RIGHT = "right";
     private static final String FACING_LEFT = "left";
     private String horizontalDirection;
+    
+    // Constants to track vertical direction
+    private static final String CLIMBING_UP = "up1";
+    private static final String CLIMBING_DOWN = "down1";
+    private String vertical1Direction;
 
     // For walking animation
     private GreenfootImage walkingRightImages[];
@@ -126,18 +131,18 @@ public class Hero extends Actor
         }
         else if (Greenfoot.isKeyDown("up") && !isGameOver)
         {
-            System.out.println("About to move up");
-//            if (onLadder())
-//            {
-                moveUp();
-//            }
+            
+            //            if (onLadder())
+            //            {
+            moveUp();
+            //            }
         }
         else if (Greenfoot.isKeyDown("down") && !isGameOver)
         {
-            if (onLadder())
-            {
+            //if (onLadder())
+            //{
                 moveDown();
-            }
+            //}
         }
         else
         {
@@ -482,19 +487,27 @@ public class Hero extends Actor
 
     public void moveUp()
     {
-        
         // set vertical move speed
         deltaY = -4;
         if ( isTouching(Ladder.class) ) 
         {
-            System.out.println("touching ladder");
+            //set image
+            if (verticalDirection == CLIMBING_UP)
+            {
+                setImage("hero-climb-up.png");
+            }
+            else
+            {
+                setImage("hero-climb-up.png");
+            }
+            
             int newVisibleWorldYPosition = getY() + deltaY;
             setLocation(getX(), newVisibleWorldYPosition);
 
             // Track position in wider scrolling world
             currentScrollableWorldYPosition = getY();
-
         }
+        
     }
 
     public void moveDown()
@@ -502,7 +515,19 @@ public class Hero extends Actor
         if ( isTouching(Ladder.class) ) 
 
         {
-            int newVisibleWorldYPosition = getY() + deltaY;
+            // set vertical move speed
+            deltaY = 0;
+            //set image
+            if (verticalDirection == CLIMBING_DOWN)
+            {
+                setImage("hero-climb down.png");
+            }
+            else
+            {
+                setImage("hero-climb down.png");
+            }
+            
+            int newVisibleWorldYPosition = deltaY - getY();
             setLocation(getX(), newVisibleWorldYPosition);
 
             // Track position in wider scrolling world
@@ -511,7 +536,6 @@ public class Hero extends Actor
         }
     }
 
-    
     public void touchUfo()
     {
         if ( isTouching(Ufo.class) ) 
@@ -532,6 +556,22 @@ public class Hero extends Actor
         {
             //End the game when the hero touches the monster
             removeTouching(Monster.class);
+            SideScrollingWorld sidescrollingworld = (SideScrollingWorld)getWorld();
+            sidescrollingworld.setGameOver();
+            isGameOver = true;
+            sidescrollingworld.removeObject(this);
+            sidescrollingworld.showText("GAME OVER", sidescrollingworld.getWidth() / 2, sidescrollingworld.getHeight() / 2);
+            GreenfootSound Dieing = new GreenfootSound("die music.wav");
+            Dieing.play();
+        }    
+    }
+    
+    public void encounterDonkeykong()
+    {
+        if (isTouching(Donkeykong.class))
+        {
+            //End the game when the hero touches the monster
+            removeTouching(Donkeykong.class);
             SideScrollingWorld sidescrollingworld = (SideScrollingWorld)getWorld();
             sidescrollingworld.setGameOver();
             isGameOver = true;

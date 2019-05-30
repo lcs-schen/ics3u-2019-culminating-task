@@ -27,6 +27,7 @@ public class Donkeykong extends Enemies
     private int speed = 1;
     private int frames = 0;
 
+    
     public void act() 
     {
         setLocation ( getX() + speed, getY() );
@@ -36,6 +37,8 @@ public class Donkeykong extends Enemies
             //Turn around and go back
             speed = -speed;
             frames = 0;
+            
         }
     }
+
 }
